@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jai Kisan, Jai Javan: Cabinet Brief</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            overflow: hidden;
+        }
+
+        .presentation {
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .slide {
+            display: none;
+            height: 100vh;
+            padding: 60px;
+            background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);
+            color: white;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .slide-title {
+            font-size: 3.5em;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .slide-subtitle {
+            font-size: 1.8em;
+            color: #e8e8e8;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .slide-content {
+            font-size: 1.4em;
+            line-height: 1.8;
+            color: #f0f0f0;
+        }
+
+        .metric {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+            border-radius: 4px;
+            font-size: 1.3em;
+        }
+
+        .metric strong {
+            color: #ffc107;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 1.1em;
+        }
+
+        table th {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            text-align: left;
+            border-bottom: 2px solid #ffc107;
+        }
+
+        table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        table tr:hover {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .checklist {
+            margin: 20px 0;
+        }
+
+        .checklist-item {
+            margin: 12px 0;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+        }
+
+        .checklist-item:before {
+            content: "✓";
+            color: #4caf50;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 1.5em;
+        }
+
+        .timeline {
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .timeline-item {
+            margin: 20px 0;
+            padding-left: 40px;
+            font-size: 1.1em;
+            position: relative;
+        }
+
+        .timeline-item:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background: #ffc107;
+            border-radius: 50%;
+        }
+
+        .stat-box {
+            background: rgba(255,255,255,0.15);
+            padding: 25px;
+            margin: 15px 0;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.3em;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            color: #ffc107;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+            color: #e8e8e8;
+        }
+
+        .highlight {
+            background: #ffc107;
+            color: #1a472a;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: #1a1a1a;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+
+        button {
+            background: #2d5a3d;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1em;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #3d7a4d;
+        }
+
+        .slide-counter {
+            color: white;
+            font-size: 1.1em;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: rgba(255,255,255,0.7);
+            margin-top: auto;
+            padding-top: 20px;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 20px 0;
+        }
+
+        .column {
+            background: rgba(255,255,255,0.08);
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        .column-title {
+            font-size: 1.5em;
+            color: #ffc107;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        li {
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 1.1em;
+        }
+
+        li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #ffc107;
+        }
+
+        .centered {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <!-- Slide 1: Title -->
+        <div class="slide active">
+            <div>
+                <div class="slide-title">Jai Kisan, Jai Javan</div>
+                <div class="slide-subtitle">FCI-Based Military RTC Ration Strategy</div>
+                <div style="font-size: 1.5em; margin-top: 40px; color: #e8e8e8;">
+                    Transforming Military Nutrition | Supporting Indian Farmers | Ensuring Strategic Autonomy
+                </div>
+            </div>
+            <div class="footer">
+                Cabinet Committee on Security | Ministry of Defence | July 31, 2026
+            </div>
+        </div>
+
+        <!-- Slide 2: The Problem -->
+        <div class="slide">
+            <div>
+                <div class="slide-title">The Problem: Private Vendor Model</div>
+                <div class="slide-content">
+                    <div class="metric">
+                        <strong>Cost Crisis:</strong> Ration prices rising <strong>8.3% annually</strong> (vs Defense budget growth: 5–6%)
+                    </div>
+                    <div class="metric">
+                        <strong>Supply Risk:</strong> <strong>70% sourced</strong> from just 4 private companies (vendor concentration)
+                    </div>
+                    <div class="metric">
+                        <strong>Quality Issues:</strong> <strong>±25% variance</strong> between batches; <strong>12–15% soldier rejection</strong> rate
+                    </div>
+                    <div class="metric">
+                        <strong>Strategic Vulnerability:</strong> <strong>15% re-imported spices</strong> (geopolitical supply shock risk)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: The Solution -->
+        <div class="slide">
+            <div>
+                <div class="slide-title">The Solution: FCI-Based RTC Strategy</div>
+                <div class="slide-content">
+                    <div class="two-column">
+                        <div class="column">
+                            <div class="column-title">Cost Reduction</div>
+                            <ul>
+                                <li>Current: ₹71/unit (private)</li>
+                                <li>FCI model: ₹27/unit</li>
+                                <li><strong>Savings: 62%</strong></li>
+                                <li>Annual: ₹4.5 Cr saved</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <div class="column-title">Supply Resilience</div>
+                            <ul>
+                                <li>20 FCI mills nationwide</li>
+                                <li>100% domestic sourcing</li>
+                                <li>Zero geopolitical risk</li>
+                                <li>Emergency scalability: 2 weeks</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Key Metrics -->
+        <div class="slide">
+            <div>
+                <div class="slide-title">Key Metrics: Impact Summary</div>
+                <div class="slide-content">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px;">
+                        <div class="stat-box">
+                            <span class="stat-number">62%</span>
+                            <span class="stat-label">Cost Reduction</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Domestic Supply</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">₹6.4 Cr</span>
+                            <span class="stat-label">5-Year Savings</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">54,700</span>
+                            <span class="stat-label">Jobs Created</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">1.4M</span>
+                            <span class="stat-label">Soldiers Benefited</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number">₹250 Cr</span>
+                            <span class="stat-label">Farmer Support/Year</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Financial Impact -->
+        <div class="slide">
+            <div>
+                <div class="slide-title">Financial Impact: 5-Year Projection</div>
+                <div class="slide-content">
+                    <table>
+                        <tr>
+                            <th>Year</th>
+                            <th>Setup Cost</th>
+                            <th>Operating Cost</th>
+                            <th>Total</th>
+                            <th>Savings vs Private</th>
+                        </tr>
+                        <tr>
+                            <td>Year 1</td>
+                            <td>₹2.85 Cr</td>
+                            <td>₹8 Cr</td>
+                            <td><strong>₹10.85 Cr</strong></td>
+                            <td>₹1.4 Cr</td>
+                        </tr>
+                        <tr>
+                            <td>Year 2</td>
+                            <td>—</td>
+                            <td>₹1.23 Cr</td>
+                            <td><strong>₹1.23 Cr</strong></td>
+                            <td><strong>₹1.69 Cr</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Year 3</td>
+                            <td>—</td>
+                            <td>₹1.24 Cr</td>
+                            <td><strong>₹1.24 Cr</strong></td>
+                            <td><strong>₹1.68 Cr</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Year 4</td>
+                            <td>—</td>
+                            <td>₹1.34 Cr</td>
+                            <td><strong>₹1.34 Cr</strong></td>
+                            <td><strong>₹1.82 Cr</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Year 5</td>
+                            <td>—</td>
+                            <td>₹1.42 Cr</td>
+                            <td><strong>₹1.42 Cr</strong></td>
+                            <td><strong>₹1.92 Cr</strong></td>
+                        </tr>
+                        <tr style="background: rgba(255,255,255,0.2);">
+                            <td colspan="2"><strong>TOTAL</strong></td>
+                            <td colspan="3"><strong style="color: #ffc107;">Net Savings: ₹6.4 Cr over 5 years | ROI: 150%</strong></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Multi-Channel Sourcing -->
+        <div class="slide">
+            <div>
+                <div class="slide-title">Multi-Channel Sourcing Strategy</div>
+                <div class="slide-content">
+                    <div style="margin-top: 30px;">
+                        <div class="metric">
+                            <strong>FCI (50%):</strong> ₹150 Cr/year → 120 Cr farmer income
+                        </div>
+                        <div class="metric">
+                            <strong>State Grain Boards (20%):</strong> ₹60 Cr/year → 50 Cr farmer income
+                        </div>
+                        <div class="metric">
+                            <strong>APMC/Direct Farmers (15%):</strong> ₹45 Cr/year → 42 Cr farmer income
+                        </div>
+                        <div class="metric">
+                            <strong>NAFED Cooperatives (10%):</strong> ₹30 Cr/year → 26 Cr farmer income
+                        </div>
+                        <div class="metric">
+                            <strong>SFAC/FPOs (5%):</strong> ₹15 Cr/year → 13 Cr farmer income
+                        </div>
+                    </div>
+                    <div style="margin-top: 40px; background: rgba(255,200,0,0.2); padding: 20px; border-radius: 4px;">
+                        <strong style="font-size: 1.3em; color: #ffc107;">Total Farmer Income: ₹251 Cr/year (50,000 farmers)</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Protein Enhancement -->
+        <div class="slide">
+            <div>
+                <div class="slide-title">Protein-Rich MRE Strategy</div>
+                <div class="slide-content">
+                    <div class="two-column">
+                        <div class="column">
+                            <div class="column-title">New Products</div>
+                            <ul>
+                                <li>Powdered eggs (NDDB)</li>
+                                <li>Chicken tikka (Mother Dairy)</li>
+                                <li>Mutton keema (high-altitude)</li>
+                                <li>Soya-dal mix (vegetarian)</li>
+                                <li>Thermal-heated MREs</li>
+                                <li>Protein bars & powders</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <div class="column-title">Daily Nutrition</div>
+                            <ul>
+                                <li><span class="highlight">53g protein/day</span></li>
+                                <li>2,200 kcal/day</li>
+                                <li>Complete amino acids</li>
+                                <li>Regional preferences</li>
+                                <li>Religious options</li>
+                                <li>Cost: ₹95/day</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Implementation Timeline -->
+        <div class="slide">
+            <div>
+                <div class="slide-title">18-Month Implementation Timeline</div>
+                <div class="slide-content">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <strong>Months 1–2:</strong> Planning & MOU negotiation
+                        </div>
+                        <div class="timeline-item">
+                            <strong>Months 3–6:</strong> FCI mill modifications (Panipat, Ranipet, Kanpur)
+                        </div>
+                        <div class="timeline-item">
+                            <strong>Months 7–9:</strong> Pilot production (100K units) + soldier trials
+                        </div>
+                        <div class="timeline-item">
+                            <strong>Months 10–12:</strong> Quality audit + regulatory approval (FSSAI, DQA)
+                        </div>
+                        <div class="timeline-item">
+                            <strong>Months 13–18:</strong> Full-scale production (4.1M units/year)
+                        </div>
+                    </div>
+                    <div style="margin-top: 40px; background: rgba(76,175,80,0.2); padding: 20px; border-radius: 4px; text-align: center;">
+                        <strong style="font-size: 1.3em; color: #4caf50;">Full operational by July 2027</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Stakeholder Benefits -->
+        <div class="slide">
+            <div>
+                <div class="slide-title">Stakeholder Benefits</div>
+                <div class="slide-content">
+                    <div class="two-column">
+                        <div class="column">
+                            <div class="column-title">Soldiers (1.4M)</div>
+                            <ul>
+                                <li>Better nutrition (altitude-specific)</li>
+                                <li>Faster prep (3–15 min)</li>
+                                <li>Regional preferences</li>
+                                <li>Consistent quality</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <div class="column-title">Farmers (50,000)</div>
+                            <ul>
+                                <li>₹250 Cr annual demand</li>
+                                <li>Price stability (locked contracts)</li>
+                                <li>5-year guaranteed orders</li>
+                                <li>No market volatility</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <div class="column-title">Defense Budget</div>
+                            <ul>
+                                <li>₹4.5 Cr/year freed</li>
+                                <li>Predictable costs</li>
+                                <li>3-service unity</li>
+                                <li>Modernization fund</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <div class="column-title">FCI & Nation</div>
+                            <ul>
+                                <li>Utilize surplus capacity</li>
+                                <li>Strategic autonomy</li>
+                                <li>Make in India</li>
+                                <li>54,700 jobs created</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Risk Assessment -->
+        <div class="slide">
+            <div>
+                <div class="slide-title">Risk Assessment & Mitigation</div>
+                <div class="slide-content">
+                    <table>
+                        <tr>
+                            <th>Risk</th>
+                            <th>Mitigation</th>
+                            <th>Residual Risk</th>
+                        </tr>
+                        <tr>
+                            <td>FCI mill capacity</td>
+                            <td>20 mills distributed nationwide</td>
+                            <td>LOW</td>
+                        </tr>
+                        <tr>
+                            <td>Quality slippage</td>
+                            <td>Military DQA posted at mills</td>
+                            <td>LOW</td>
+                        </tr>
+                        <tr>
+                            <td>Supply delays</td>
+                            <td>Multi-channel sourcing (5 sources)</td>
+                            <td>LOW</td>
+                        </tr>
+                        <tr>
+                            <td>Soldier acceptance</td>
+                            <td>Tasting campaigns, brand education</td>
+                            <td>MEDIUM-LOW</td>
+                        </tr>
+                        <tr>
+                            <td>Political changes</td>
+                            <td>Cabinet-level MOU (5-year lock)</td>
+                            <td>MEDIUM</td>
+                        </tr>
+                    </table>
+                    <div style="margin-top: 30px; text-align: center; font-size: 1.3em; color: #4caf50;">
+                        <strong>Overall Risk Profile: LOW (vs HIGH for continued vendor dependency)</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Call to Action -->
+        <div class="slide">
+            <div>
+                <div class="slide-title">Call to Action</div>
+                <div class="slide-content centered" style="text-align: center;">
+                    <div class="checklist" style="text-align: left; margin-top: 40px;">
+                        <div class="checklist-item">Approve MOU between Ministry of Defence, FCI, and OFB</div>
+                        <div class="checklist-item">Authorize ₹2.85 Cr setup budget (Year 1)</div>
+                        <div class="checklist-item">Direct FCI to initiate mill modifications</div>
+                        <div class="checklist-item">Empower Armed Forces to form steering committee</div>
+                        <div class="checklist-item">Direct SFAC/state boards for multi-channel coordination</div>
+                    </div>
+                    <div style="margin-top: 50px; font-size: 1.5em; color: #ffc107; font-weight: bold;">
+                        Ready for Cabinet Committee on Security Approval
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Summary -->
+        <div class="slide">
+            <div>
+                <div class="slide-title">Strategic Vision: Jai Kisan, Jai Javan</div>
+                <div class="slide-content centered">
+                    <div style="font-size: 1.4em; line-height: 2; margin-top: 40px;">
+                        <div style="margin: 30px 0;">
+                            <strong style="color: #ffc107;">Support Indian Farmers</strong><br>
+                            ₹250 Cr annual procurement, 50,000 farmers, 54,700 jobs
+                        </div>
+                        <div style="margin: 30px 0;">
+                            <strong style="color: #ffc107;">Defend Indian Soldiers</strong><br>
+                            Better nutrition, faster prep, regional adaptation, consistent quality
+                        </div>
+                        <div style="margin: 30px 0;">
+                            <strong style="color: #ffc107;">Ensure Strategic Autonomy</strong><br>
+                            100% domestic sourcing, zero import dependency, geopolitical resilience
+                        </div>
+                    </div>
+                    <div style="margin-top: 50px; font-size: 1.5em; color: #ffc107;">
+                        <strong>A unified policy serving three strategic objectives</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button onclick="previousSlide()">← Previous</button>
+            <span class="slide-counter">
+                <span id="current-slide">1</span> / <span id="total-slides">12</span>
+            </span>
+            <button onclick="nextSlide()">Next →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        document.getElementById('total-slides').textContent = totalSlides;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+
+            if (n > totalSlides) {
+                currentSlide = totalSlides;
+            }
+            if (n < 1) {
+                currentSlide = 1;
+            }
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
+
+            document.getElementById('current-slide').textContent = currentSlide;
+
+            // Update button states
+            document.querySelectorAll('button')[0].disabled = currentSlide === 1;
+            document.querySelectorAll('button')[1].disabled = currentSlide === totalSlides;
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            showSlide(currentSlide);
+        }
+
+        function previousSlide() {
+            currentSlide--;
+            showSlide(currentSlide);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') previousSlide();
+        });
+
+        // Initialize
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
