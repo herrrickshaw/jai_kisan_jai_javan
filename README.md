@@ -1,5 +1,9 @@
 # Jai Kisan, Jai Javan: FCI-Based Military RTC Ration Strategy
 
+<!-- how-to-use-with-ai -->
+> **New here?** See [How to use this repo with AI (Claude, Gemini, ChatGPT)](HOW_TO_USE_WITH_AI.md) — clone it, paste it into an AI tool, and ask in plain English.
+
+
 **A comprehensive strategy to transition Indian Armed Forces (Army, Air Force, Navy) from private vendor rations to sustainable, cost-effective, FCI-sourced Ready-to-Cook meals.**
 
 ---
