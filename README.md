@@ -1,281 +1,79 @@
-# Jai Kisan, Jai Javan: FCI-Based Military RTC Ration Strategy
+# Jai Kisan, Jai Javan: FCI-sourced ready-to-cook rations for the Indian Armed Forces
 
-<!-- how-to-use-with-ai -->
-> **New here?** See [How to use this repo with AI (Claude, Gemini, ChatGPT)](HOW_TO_USE_WITH_AI.md) — clone it, paste it into an AI tool, and ask in plain English.
+A written policy proposal for moving Indian Army, Air Force and Navy field rations from private-vendor
+supply to ready-to-cook (RTC) and ready-to-eat (MRE) meals produced at Food Corporation of India (FCI) mills
+and sourced through FCI, state grain boards, APMCs, NAFED and farmer producer organisations. The repository
+is documents only: a strategy, a sourcing framework, a five-year financial model, a Cabinet brief, two MRE
+extensions and a 12-slide presentation in Markdown, HTML, PPTX and PDF. There is no code and no data.
 
+> Status: research-only draft (v1.0, 31 July 2026). This is an independent proposal drafted with AI
+> assistance; nothing in the repository records submission to, review by, or endorsement from the Ministry
+> of Defence, FCI, OFB, AFMC or any other agency. All cost, capacity and farmer-income figures are the
+> authors' estimates, not sourced government data, and they are not fully consistent across documents
+> (see Limitations).
 
-**A comprehensive strategy to transition Indian Armed Forces (Army, Air Force, Navy) from private vendor rations to sustainable, cost-effective, FCI-sourced Ready-to-Cook meals.**
+## What it does
+- Sets out the core case: private-vendor rations at ~Rs 71/unit replaced by FCI RTC meals at ~Rs 27/unit (a 62% reduction), produced at 20 distributed FCI mills with Panipat, Ranipet and Kanpur modified first (`STRATEGY.md`).
+- Specifies a five-tier sourcing mix (FCI 50%, state grain boards 20%, APMC/direct farmers 15%, NAFED 10%, SFAC/FPOs 5%) and estimates Rs 251 Cr reaching about 50,000 farmers from Rs 300 Cr annual procurement (`SOURCING_CHANNELS.md`).
+- Models per-unit costs, a five-year projection (750K units in Y1 rising to 4.1M units/year from Y2), break-even and sensitivity cases (`FINANCIAL_MODEL.md`).
+- Provides a Cabinet Committee on Security brief with a phased timeline and service-wise volumes (Army 2.5M, IAF 1M, Navy 600K units/year) (`CABINET_SUBMISSION_BRIEF.md`).
+- Extends the carbohydrate-based menu to protein: powdered egg, meat and pulse MREs, fortified powders and thermal-heated no-fire meals, targeting +10-15 g protein per soldier per day (`PROTEIN_MRE_STRATEGY.md`).
+- Describes storage and deployment scenarios from forward depots (<30 days, 1,000-5,000 troops) through export, with a storage cost model and technology recommendations (`MRE_STORAGE_DEPLOYMENT_SCENARIOS.md`).
 
----
+## Quick start
+Nothing to install. Clone and read, or open the files on GitHub.
 
-## Overview
-
-This repository documents a strategic initiative to:
-
-1. **Reduce military ration costs** by 62% (₹70 → ₹27 per unit)
-2. **Strengthen supply resilience** via 20 distributed FCI mills (vs vendor dependency)
-3. **Support rural farmers** with stable ₹250 Cr annual procurement
-4. **Create 54,700 jobs** in agricultural logistics and food processing
-5. **Unify procurement** across all three military branches
-
----
-
-## Key Metrics
-
-| Metric | Current | Proposed | Improvement |
-|--------|---------|----------|-------------|
-| **Unit cost** | ₹70 | ₹27 | 62% cheaper |
-| **Quality variance** | ±25% | ±5% | 80% better |
-| **Supply reliability** | 70% | 100% | 20 mills, zero gaps |
-| **Annual savings** | — | ₹4.5 Cr | 5-year: ₹17 Cr |
-| **Employment created** | 1K | 54.7K | 5,370% growth |
-| **Shelf-life options** | 18–24 mo | 18–48 mo | 100% flexible |
-
----
-
-## Strategic Benefits
-
-### For Soldiers
-- ✅ Better nutritionally fortified meals (altitude-specific, region-adapted)
-- ✅ Consistent quality across all units
-- ✅ Faster meal prep (3–15 min, no-fire variants available)
-- ✅ Regional flavor preferences (Sambar South, Rajma North, Poha nationwide)
-
-### For Defense Budget
-- ✅ ₹4.5 Cr/year savings (reallocate to modernization)
-- ✅ Predictable costs (locked escalators, no price shocks)
-- ✅ 5-year: ₹17 Cr net savings after transition
-- ✅ Unified Army/IAF/Navy procurement (scale efficiency)
-
-### For India
-- ✅ 54,700 jobs (farmers, millers, logistics)
-- ✅ ₹250 Cr stable farm income (rural development)
-- ✅ 100% domestic sourcing (geopolitical autonomy)
-- ✅ "Make in India" defense procurement alignment
-
----
-
-## Repository Structure
-
-```
-jai_kisan_jai_javan/
-├── 📋 README.md (this file)
-├── 📊 STRATEGY.md (Core FCI strategy & rationale)
-├── ANALYSIS/
-│   ├── current_vs_fci_comparison.md (Vendor vs FCI analysis)
-│   ├── cost_analysis_detailed.md (Unit cost breakdown)
-│   ├── supply_chain_risks.md (Vulnerability assessment)
-│   └── quality_standardization.md (Quality comparison)
-├── IMPLEMENTATION/
-│   ├── 01_army_rations.md (Army RTC products)
-│   ├── 02_airforce_rations.md (Air Force altitude-optimized)
-│   ├── 03_navy_rations.md (Navy sea-deployment specs)
-│   ├── timeline_roadmap.md (12-month rollout plan)
-│   └── budget_allocation.md (₹2.2 Cr setup + ₹1.24 Cr/year)
-├── FCI_PARTNERSHIP/
-│   ├── mou_draft.md (MOU with FCI, Ministry of Defence)
-│   ├── mill_requirements.md (Panipat, Ranipet, Kanpur specs)
-│   └── procurement_contract_terms.md (5-year agreement)
-├── PRODUCTS/
-│   ├── tier1_products.md (Khichdi, Poha, Rajma — immediate)
-│   ├── tier2_products.md (High-altitude, sea-deployment variants)
-│   └── product_specifications.md (Recipes, nutrition, shelf-life)
-├── FINANCIAL/
-│   ├── 5year_cost_model.csv (Annual projections)
-│   ├── roi_analysis.md (773% return over 5 years)
-│   ├── comparison_tables.md (Private vs FCI side-by-side)
-│   └── breakeven_analysis.md (Payback: 3 months)
-├── RESEARCH/
-│   ├── validation_studies.md (Soldier acceptance trials)
-│   ├── quality_assurance_protocol.md (100% batch testing)
-│   └── micronutrient_bioavailability.md (Fortification validation)
-├── GOVERNANCE/
-│   ├── steering_committee.md (Army/IAF/Navy/FCI/OFB)
-│   ├── approval_workflow.md (Cabinet → implementation)
-│   └── regulatory_compliance.md (FSSAI, DQA, NABL)
-├── REFERENCES/
-│   ├── fci_capacity_inventory.md (Mills, storage, commodity stock)
-│   ├── military_ration_standards.md (Current standards)
-│   └── international_benchmarks.md (US MREs, UK ORP, etc.)
-├── CASE_STUDIES/
-│   ├── vendor_failure_2023.md (Britannia delay incident)
-│   ├── geopolitical_resilience.md (Border scenario)
-│   └── emergency_scalability.md (Exercise surge handling)
-├── STAKEHOLDER_BRIEF/
-│   ├── cabinet_note.md (Executive summary for approval)
-│   ├── soldier_acceptance_campaign.md (Morale strategy)
-│   ├── farmer_outreach.md (Agricultural support messaging)
-│   └── media_talking_points.md (Public communication)
-├── CHANGELOG.md (Document version history)
-├── LICENSE (MIT)
-└── CONTRIBUTING.md (How to contribute updates)
+```bash
+git clone https://github.com/herrrickshaw/jai_kisan_jai_javan.git
+cd jai_kisan_jai_javan
+open CABINET_SUBMISSION_BRIEF.md     # the executive summary; start here
+open CABINET_PRESENTATION.html      # the 12-slide deck in a browser
 ```
 
----
+Suggested order: `STRATEGY.md` (vision and 12-month roadmap), `CABINET_SUBMISSION_BRIEF.md`,
+`FINANCIAL_MODEL.md`, `SOURCING_CHANNELS.md`, then the two MRE extensions. For plain-language use with an AI
+assistant see [`HOW_TO_USE_WITH_AI.md`](HOW_TO_USE_WITH_AI.md).
 
-## Quick Start for Decision-Makers
+## How it works
+The documents build on each other: the strategy fixes the product set (khichdi, poha, rajma and regional
+variants; 7 core products), unit-cost target and mill plan; the sourcing document allocates the grain
+procurement across five channels; the financial model turns volumes and unit costs into a five-year cash
+view; the Cabinet brief condenses all three for approval; the protein and storage documents extend the
+menu and the logistics. The presentation (`CABINET_PRESENTATION.*`) is a 12-slide summary of the same
+material plus an 18-month timeline.
 
-### For Defense Ministry
-1. Read: [`STRATEGY.md`](STRATEGY.md) (5 min overview)
-2. Review: [`STAKEHOLDER_BRIEF/cabinet_note.md`](STAKEHOLDER_BRIEF/cabinet_note.md) (Cabinet-ready summary)
-3. Check: [`FINANCIAL/roi_analysis.md`](FINANCIAL/roi_analysis.md) (₹17 Cr 5-year savings)
+Headline figures as stated in `FINANCIAL_MODEL.md`: setup cost Rs 2.85 Cr; annual operating cost about
+Rs 1.24 Cr at 4.1M units/year against Rs 2.92 Cr for the private model; net five-year savings Rs 7.12 Cr;
+ROI on setup 250%; payback 12 months (break-even in July 2027 at Rs 23 lakh/month run-rate savings).
+Private-vendor cost is assumed to rise 8.3% a year against a locked 1.8% escalator for FCI.
 
-### For FCI Leadership
-1. Read: [`FCI_PARTNERSHIP/mou_draft.md`](FCI_PARTNERSHIP/mou_draft.md)
-2. Review: [`FCI_PARTNERSHIP/mill_requirements.md`](FCI_PARTNERSHIP/mill_requirements.md)
-3. Check: [`PRODUCTS/product_specifications.md`](PRODUCTS/product_specifications.md)
+## Repository layout
+| Path | Purpose |
+|---|---|
+| `STRATEGY.md` | Core vision, unit-cost comparison, 20-mill distributed production, 12-month phased roadmap |
+| `SOURCING_CHANNELS.md` | Five-tier sourcing model, farmer income distribution, governance, risk mitigation |
+| `FINANCIAL_MODEL.md` | Per-unit cost breakdown, three volume scenarios, 5-year projection, break-even, sensitivity |
+| `CABINET_SUBMISSION_BRIEF.md` | CCS-format executive summary |
+| `PROTEIN_MRE_STRATEGY.md` | Egg, meat, pulse and thermal MRE formats with landed-cost estimates |
+| `MRE_STORAGE_DEPLOYMENT_SCENARIOS.md` | Forward-depot to export storage scenarios, cost model, technology, deployment checklists |
+| `CABINET_PRESENTATION.{md,html,pptx,pdf}` | The same 12-slide deck in four formats |
+| `CHANGELOG.md` | v1.0 release notes and planned v1.1 / v2.0 scope |
+| `CONTRIBUTING.md` | Issue labels and suggested file conventions for pilot results and feedback |
+| `LICENSE` | MIT with additional terms (see Licence) |
+| `.github/workflows/quality-gates.yml` | gitleaks secret scan on push / PR |
 
-### For Military Operations
-1. Read: [`IMPLEMENTATION/timeline_roadmap.md`](IMPLEMENTATION/timeline_roadmap.md)
-2. Review: [`IMPLEMENTATION/01_army_rations.md`](IMPLEMENTATION/01_army_rations.md) (service-specific)
-3. Check: [`RESEARCH/validation_studies.md`](RESEARCH/validation_studies.md)
+## Limitations and known issues
+- Figures disagree between documents and have not been reconciled: five-year net savings appear as Rs 17 Cr (old README, brief header), Rs 6.4 Cr (brief table, `CHANGELOG.md`) and Rs 7.12 Cr (`FINANCIAL_MODEL.md`); ROI as 773% and 250%; payback as 3 months, 3.5 months and 12 months; the roadmap as 12 months (`STRATEGY.md`) and 18 months (`CHANGELOG.md`, presentation); steady-state volume as 2.25M and 4.1M units/year. Treat `FINANCIAL_MODEL.md` as the working set.
+- No source is cited for the Rs 71/unit private-vendor cost, the 20-mill FCI capacity, the 1.407M personnel count or the 54,700-jobs estimate; these are assumptions.
+- `CONTRIBUTING.md` proposes directories (`ANALYSIS/`, `RESEARCH/`, `STAKEHOLDER_BRIEF/`) that do not exist in the repository, and `CHANGELOG.md` says `CONTRIBUTING.md` is "to be added" although it is present.
+- `CHANGELOG.md` cites a `github.com/government-strategy/...` URL and `@gov.in` contact addresses that are not verifiable from this repository; the canonical location is `github.com/herrrickshaw/jai_kisan_jai_javan`.
+- Pilot data, FCI capacity confirmation, state-board commitments and NAFED/SFAC agreements listed under "Planned for v1.1" do not exist; nothing after v1.0 has been added.
+- The `.pptx` and `.pdf` are generated from the Markdown deck and are not regenerated automatically.
 
----
+## Related repositories
+- [india-mandi-arrivals](https://github.com/herrrickshaw/india-mandi-arrivals) — Agmarknet / UPAG mandi arrivals and price collectors, relevant to the APMC sourcing tier.
 
-## Timeline Overview
-
-```
-PHASE 1: Planning (Month 1–2)
-  └─ MOU negotiation, committee formation, RFI issued
-
-PHASE 2: Setup (Month 3–6)
-  └─ FCI mill modifications (Panipat, Ranipet, Kanpur)
-
-PHASE 3: Pilot (Month 7–9)
-  └─ 100K units produced, 3-service testing, soldier feedback
-
-PHASE 4: Validation (Month 10–12)
-  └─ Quality audit, regulatory approval (FSSAI/DQA)
-
-PHASE 5: Rollout (Year 2)
-  └─ Full production: 2.25M units/year, all three services
-```
-
----
-
-## Financial Summary
-
-| Year | Capital | Recurring | Total | Savings |
-|------|---------|-----------|-------|---------|
-| **Year 1** | ₹2.85 Cr | ₹8 Cr | ₹10.85 Cr | ₹1.4 Cr |
-| **Year 2–5** | — | ₹1.24 Cr/yr | ₹4.96 Cr/yr | ₹3.36–4.5 Cr/yr |
-| **5-YEAR TOTAL** | | | **₹28.85 Cr** | **₹17.02 Cr** |
-
-**ROI:** 773% return on ₹2.2 Cr investment | **Payback:** 3 months
-
----
-
-## Stakeholder Impact
-
-### Soldiers (1.4M personnel)
-- Better nutrition (altitude-specific, region-adapted, fortified)
-- Faster meal prep (3–15 min vs 25–30 min)
-- Higher acceptance (85–90% vs 65–70%)
-- No quality inconsistency
-
-### Farmers (50,000+ agricultural suppliers)
-- ₹250 Cr stable annual procurement
-- Price stability (government contract, no market volatility)
-- Guaranteed market (5-year MOU)
-
-### Military Budget
-- ₹4.5 Cr/year freed for modernization
-- Predictable costs (no price shocks)
-- Scale efficiency (unified 3-service procurement)
-
-### FCI
-- Utilize 40–50% surplus mill capacity
-- Stable revenue (₹2.5 Cr/year government transfer)
-- Strategic mission alignment (food security)
-
----
-
-## Critical Success Factors
-
-1. ✅ **Cabinet-level approval** (MOU with FCI required)
-2. ✅ **Multi-service coordination** (Army/IAF/Navy unified command)
-3. ✅ **Mill readiness** (Panipat, Ranipet, Kanpur capacity validation)
-4. ✅ **Soldier acceptance** (Pilot trials + taste campaigns)
-5. ✅ **Quality assurance** (NABL certification + 100% batch testing)
-6. ✅ **Regulatory compliance** (FSSAI approval, DQA clearance)
-
----
-
-## How to Use This Repository
-
-### For Policy Implementation
-- Follow [`IMPLEMENTATION/timeline_roadmap.md`](IMPLEMENTATION/timeline_roadmap.md)
-- Use [`FCI_PARTNERSHIP/mou_draft.md`](FCI_PARTNERSHIP/mou_draft.md) as MOU template
-- Reference [`GOVERNANCE/approval_workflow.md`](GOVERNANCE/approval_workflow.md) for decision gates
-
-### For Financial Planning
-- Review [`FINANCIAL/5year_cost_model.csv`](FINANCIAL/5year_cost_model.csv)
-- Study [`FINANCIAL/roi_analysis.md`](FINANCIAL/roi_analysis.md)
-- Check [`FINANCIAL/comparison_tables.md`](FINANCIAL/comparison_tables.md) for private vs FCI
-
-### For Operational Readiness
-- Consult [`IMPLEMENTATION/01_army_rations.md`](IMPLEMENTATION/01_army_rations.md) (Army specifics)
-- Review [`IMPLEMENTATION/02_airforce_rations.md`](IMPLEMENTATION/02_airforce_rations.md) (IAF altitude needs)
-- Check [`IMPLEMENTATION/03_navy_rations.md`](IMPLEMENTATION/03_navy_rations.md) (Navy sea-deployment)
-
-### For Research & Validation
-- See [`RESEARCH/validation_studies.md`](RESEARCH/validation_studies.md) for trial protocols
-- Review [`RESEARCH/quality_assurance_protocol.md`](RESEARCH/quality_assurance_protocol.md)
-- Check [`RESEARCH/micronutrient_bioavailability.md`](RESEARCH/micronutrient_bioavailability.md)
-
----
-
-## Contributing
-
-This is a living document. Updates welcome:
-- Add case studies from your unit's pilot trial
-- Contribute regional product variants
-- Share soldier feedback from acceptance surveys
-- Update FCI capacity data as partnerships evolve
-
-See [`CONTRIBUTING.md`](CONTRIBUTING.md) for guidelines.
-
----
-
-## Glossary
-
-| Term | Definition |
-|------|-----------|
-| **RTC** | Ready-to-Cook meals (vacuum-sealed, 3–15 min prep) |
-| **FCI** | Food Corporation of India (government PSU) |
-| **OFB** | Ordnance Factories Board (defense manufacturing) |
-| **NABL** | National Accreditation Board for Testing Labs |
-| **DQA** | Defence Quality Assurance (military QA authority) |
-| **FSSAI** | Food Safety & Standards Authority of India |
-| **MOU** | Memorandum of Understanding (contract framework) |
-| **IAF** | Indian Air Force |
-| **INS** | Indian Naval Ship |
-
----
-
-## Contact & Governance
-
-**Repository Owner:** Defense Ministry Procurement Cell  
-**Partner Agencies:** FCI, OFB, Army Logistics, IAF Supply, Naval Supply  
-**Last Updated:** July 31, 2026  
-**Next Review:** September 30, 2026 (post-cabinet submission)
-
----
-
-## License
-
-This repository is published under the **MIT License** to enable transparent, collaborative policy development. All content is public domain for government implementation.
-
----
-
-## Acknowledgments
-
-Developed with input from:
-- Food Corporation of India (commodity expertise)
-- Ordnance Factories Board (military ration standards)
-- Armed Forces Medical College (nutritional validation)
-- Agricultural economics research (farmer impact analysis)
-
----
-
-**Status:** 🟡 **DRAFT - Ready for Cabinet Submission** (Subject to stakeholder review)
+## Licence
+`LICENSE` is the MIT licence text with appended "Additional Terms for Government Use"; it names
+"Ministry of Defence, India" as copyright holder, which this repository's history does not substantiate.
+GitHub classifies the file as "Other" because of the appended terms.
